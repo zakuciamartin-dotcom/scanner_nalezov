@@ -12,7 +12,11 @@ TARGET_VALUES = [
     "RV", "RV/TLC", "sRefftot", "TLco(Hb)", "Kco(Hb)", "VA"
 ]
 
-img_file = st.camera_input("Odfoťte tabuľku")
+img_file = st.file_uploader("Nahrajte fotku nálezu alebo odfoťte", type=['jpg', 'jpeg', 'png'])
+
+if not img_file:
+    img_file = st.camera_input("Alebo odfoťte priamo")
+
 
 if img_file:
     with st.spinner('Analyzujem štruktúru tabuľky...'):
